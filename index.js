@@ -1,0 +1,12 @@
+const express=require('express')
+const urlroute=require('./routes/url')
+const redirectroute =require("./routes/redirect")
+const app=express()
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+const db=require("./db")
+app.use("/url",urlroute)
+app.use('/',redirectroute)
+app.listen(8080,()=>{
+    console.log("server started!!")
+})
